@@ -102,6 +102,7 @@ rule build_pop_genome:
                 --include-indels')
 
 rule build_pop_genome_index:
+    conda: "../../../../../environments/bowtie2.yaml"
     input:
         genome = os.path.join(DIR_POP_GENOME_BLOCK, WG_POP_GENOME_SUFFIX + '.fa')
     output:
