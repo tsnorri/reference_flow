@@ -1,7 +1,7 @@
 ''' This snakefile includes rules that perform paired-end alignment.'''
 ''' Perform first-pass alignment.'''
 rule align_to_major:
-    conda: "../../../../../environments/bowtie2.yaml"
+    conda: "../../../../../workflow/environments/bowtie2.yaml"
     input:
         reads1 = READS1,
         reads2 = READS2,
@@ -43,7 +43,7 @@ rule refflow_split_aln_by_mapq:
 
 ''' Align low-quality reads using population genomes.'''
 rule refflow_align_secondpass_paired_end:
-    conda: "../../../../../environments/bowtie2.yaml"
+    conda: "../../../../../workflow/environments/bowtie2.yaml"
     input:
         reads1 = os.path.join(DIR_FIRST_PASS,
             EXP_LABEL + '-major-mapqlt' + ALN_MAPQ_THRSD + '_1.fq'),
