@@ -14,7 +14,7 @@ rule build_major:
         '{BCFTOOLS} consensus -f {input.genome} -o {output.out_genome} {output.vcfgz}'
 
 rule build_major_index:
-    conda: "../../../../../workflow/environments/bowtie2.yaml"
+    conda: "../../../../workflow/environments/bowtie2.yaml"
     input:
         os.path.join(DIR, 'major/' + EXP_LABEL + '-maj.fa')
     output:
